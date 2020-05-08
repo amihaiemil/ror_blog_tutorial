@@ -1,20 +1,19 @@
-<h1>Comments on Article <%= @article.id %></h1>
+<h1>Comments on Article <%= link_to '#' + @article.id.to_s, article_path(@article) %></h1>
 
+<h2>Rendered Table with Iteration</h2>
 <table>
   <tr>
     <th>Commenter</th>
     <th>Comment</th>
-    <th></th>
   </tr>
 
   <% @article.comments.each do |comment| %>
     <tr>
       <td><%= comment.commenter %></td>
       <td><%= comment.body %></td>
-      <td><%= link_to 'To Article', article_path(@article) %></td>
     </tr>
   <% end %>
 </table>
 
-<h2>Rendered with Partial</h2>
+<h2>Rendered List with Partial</h2>
 <%= render @article.comments %>
